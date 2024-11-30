@@ -46,10 +46,12 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        return view('member.blogs.edit');
+        $post = post::findOrFail($id); // Mencari blog berdasarkan ID
+        return view('member.blogs.edit', compact('post'));
     }
+
 
     /**
      * Update the specified resource in storage.
